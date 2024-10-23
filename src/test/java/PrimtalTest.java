@@ -20,7 +20,7 @@ public class PrimtalTest {
     //testa om inmatad siffra är null, mindre än 0, mer än 1000 eller bara rätt
     @Test
     @DisplayName("validera input")
-    public void testValidateInput(){
+    public void testValidateInput() {
         assertAll("Validering av inmatning",
                 () -> assertThrows(IllegalArgumentException.class, () -> Primtal.validateInput(-5), "Tal är mindre än noll, inte ok"),
                 () -> assertTrue(Primtal.validateInput(0), "Test nedre gränsfall"),
@@ -48,22 +48,22 @@ public class PrimtalTest {
     //kontrollera att siffran är ett primtal
     @Test
     @DisplayName("Är siffran ett prim-tal")
-    public void testIsItPrimeNumber(){
+    public void testIsItPrimeNumber() {
         assertTrue(Primtal.isPrimeNumber(3));
     }
 
     //kontroll av att siffran inte är ett primtal
     @Test
     @DisplayName("Är siffran INTE ett prim-tal")
-    public void testIsItNotPrimeNumber(){
+    public void testIsItNotPrimeNumber() {
         assertFalse(Primtal.isPrimeNumber(4));
     }
 
     //kontrollera antalet primtal inom intervall 10
     @Test
     @DisplayName("Antal prim-tal i array av 10 nummer")
-    public void testNumbersInArray10(){
-        int [] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    public void testNumbersInArray10() {
+        int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         ArrayList<Integer> primeNumbers = Primtal.countPrimesInArray(numbers);
         assertEquals(4, primeNumbers.size());
     }
@@ -71,12 +71,13 @@ public class PrimtalTest {
     //kontrollera antalet primtal inom intervall 20
     @Test
     @DisplayName("Antal prim-tal i array av 20 nummer")
-    public void testNumbersInArray20(){
+    public void testNumbersInArray20() {
         int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
         ArrayList<Integer> primeNumbers = Primtal.countPrimesInArray(numbers);
         assertEquals(8, primeNumbers.size());
     }
 
+    //lägga ihop siffror i array
     @Test
     @DisplayName("Addera siffror från Array")
     public void testSumArray() {
@@ -85,7 +86,7 @@ public class PrimtalTest {
         assertEquals(15, result);
     }
 
-
+    //test för att skapa array mellan ett lågt och ett högt nummer
     @Test
     @DisplayName("test skapa array mellan två nummer")
     public void testCreateArrayValidRange() {
@@ -97,6 +98,7 @@ public class PrimtalTest {
         assertArrayEquals(expectedArray, Primtal.numberArray);
     }
 
+    //test för att skapa array mellan med samma nummer
     @Test
     @DisplayName("Test att skapa array med samma nummer")
     public void testCreateArraySameLowAndHigh() {

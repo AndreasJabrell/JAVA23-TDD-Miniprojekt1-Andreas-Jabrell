@@ -9,7 +9,6 @@ public class Primtal {
 
 
     // metod för att kolla om siffra är prim-tal
-    //DENNA hamnar mitt i en loop som kontrollerar siffrorna i en array
     static boolean isPrimeNumber(int num) {
         if (num <= 1) {
             return false;
@@ -33,13 +32,11 @@ public class Primtal {
     public static boolean validateInput(Integer input) throws IllegalArgumentException {
         if (input == null || input < 0 || input > 1000) {
             throw new IllegalArgumentException("Input måste vara mellan 0 och 1000.");
-        } else{
+        } else {
             return true;
         }
     }
 
-
-    //MÅSTE TA EMOT EN ARRAY
     // räknar prim-tal inom specifik längd av siffror
     public static ArrayList<Integer> countPrimesInArray(int[] numbers) {
         ArrayList<Integer> primeNumbers = new ArrayList<>();
@@ -47,7 +44,7 @@ public class Primtal {
         // Kontrollera alla tal i array för att se om de är primtal
         for (int num : numbers) {
             if (isPrimeNumber(num)) {
-                primeNumbers.add(num); // Lägg till primtalet i listan
+                primeNumbers.add(num);
             }
         }
 
@@ -72,7 +69,7 @@ public class Primtal {
         // Sätter startmeddelande
         String welcome = "Hej, mata in två siffror mellan 0-1000 för att se hur många primtal det finns mellan dessa siffror + få ut summan av dem";
         System.out.println(welcome);
-        boolean validInput = false;  // Flagga för att kontrollera giltig inmatning
+        boolean validInput = false;
         int lowNumber = 0;
         int highNumber = 0;
         // Öppna scanner för input
@@ -90,10 +87,10 @@ public class Primtal {
                 validInput = true;
 
             } catch (IllegalArgumentException e) {
-                // Fångar felmeddelandet och skriver ut det
+                // Fångar felmeddelandet
                 System.out.println("Error: " + e.getMessage());
                 System.out.println("Var god och mata in korrekta siffror mellan 0 och 1000.");
-                sc.nextLine(); // Rensar scanners buffert ifall användaren matar in fel typ av data
+                sc.nextLine();
             }
         }
 
